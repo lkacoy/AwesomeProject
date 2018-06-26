@@ -9,6 +9,14 @@ const Icons = () => (
             name='ios-american-football'
             type='ionicon'
         />
+        <Icon
+            raised
+            color='#f50'
+            name='heartbeat'
+            type='font-awesome'
+            onPress={() =>
+                Alert.alert('hello')}
+        />
 
     </View>
 )
