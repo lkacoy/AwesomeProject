@@ -55,11 +55,15 @@ class ScreenA extends Component {
     constructor(props) {
         super(props);
     }
-    
+
     render() {
         return (
             <View>
                 <Text h1>Screen A</Text>
+                <Button title="Go Home"
+                        onPress={() =>this.props
+                            .navigation
+                            .navigate('Home')} />
             </View>
         )
     }
