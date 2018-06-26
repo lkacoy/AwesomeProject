@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {FormLabel, FormInput, FormValidationMessage, Text} from 'react-native-elements';
+import {FormLabel, FormInput, FormValidationMessage, Text, Button} from 'react-native-elements';
 
 class TrueFalseQuestionEditor extends React.Component {
 
@@ -33,6 +33,12 @@ class TrueFalseQuestionEditor extends React.Component {
                 <FormValidationMessage>
                     Description is required
                 </FormValidationMessage>
+                <Button	backgroundColor="green"
+                           color="white"
+                           title="Save"/>
+                <Button	backgroundColor="red"
+                           color="white"
+                           title="Cancel"/>
 
                 <Text h3>Preview</Text>
                 <Text h2>{this.state.title}</Text>
