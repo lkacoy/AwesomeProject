@@ -7,10 +7,10 @@ export default class Exam extends Component {
         return (
             <View stye={{padding: 15}}>
                 <Text h2>Lists</Text>
-                <ListItem/>
-                <ListItem/>
-                <ListItem/>
-                <ListItem/>
+                <ListItem title="Question 1"/>
+                <ListItem title="Question 2"/>
+                <ListItem title="Question 3"/>
+                <ListItem title="Question 4"/>
             </View>
         )
     }
