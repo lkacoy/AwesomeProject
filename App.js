@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, ScrollView, StatusBar } from 'react-native';
 import FixedHeader from './elements/FixedHeader';
 import TextHeadings from './elements/TextHeadings';
 import Icons from './elements/Icons';
@@ -11,7 +11,7 @@ import TrueFalseQuestionEditor from './elements/TrueFalseQuestionEditor';
 export default class App extends React.Component {
   render() {
     return (
-      <View>
+      <ScrollView>
           <StatusBar barStyle="light-content"/>
           <FixedHeader/>
 
@@ -25,7 +25,7 @@ export default class App extends React.Component {
           <View style={{padding: 20}}>
           <TextHeadings/>
           </View>
-      </View>
+      </ScrollView>
     );
   }
 }
