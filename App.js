@@ -9,30 +9,40 @@ import QuestionTypePicker from './elements/QuestionTypePicker';
 import TrueFalseQuestionEditor from './elements/TrueFalseQuestionEditor';
 import {createStackNavigator} from 'react-navigation';
 
-const Home = (navigation) => (
-    <ScrollView>
-        <StatusBar barStyle="light-content"/>
-        <FixedHeader/>
+class Home extends Component {
 
-        <Button title="Go to Screen A"
-                onPress={() => navigation
-                    .navigate('ScreenA') } />
-        <Button title="Go to Screen B"
-                onPress={() => navigation
-                    .navigate('ScreenB') } />
+    constructor(props) {
+        super(props);
 
-        <TrueFalseQuestionEditor/>
+    }
 
-        <QuestionTypeButtonGroupChooser/>
-        <QuestionTypePicker/>
-        <Exam/>
+    render() {
+        return (
+            <ScrollView>
+                <StatusBar barStyle="light-content"/>
+                <FixedHeader/>
 
-        <Icons/>
-        <View style={{padding: 20}}>
-            <TextHeadings/>
-        </View>
-    </ScrollView>
-);
+                <Button title="Go to Screen A"
+                        onPress={() => this.props.navigation
+                            .navigate('ScreenA') } />
+                <Button title="Go to Screen B"
+                        onPress={() => this.props.navigation
+                            .navigate('ScreenB') } />
+
+                <TrueFalseQuestionEditor/>
+
+                <QuestionTypeButtonGroupChooser/>
+                <QuestionTypePicker/>
+                <Exam/>
+
+                <Icons/>
+                <View style={{padding: 20}}>
+                    <TextHeadings/>
+                </View>
+            </ScrollView>
+        )
+    }
+}
 
 const ScreenA = () => (
     <View>
