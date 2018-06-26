@@ -11,6 +11,10 @@ import {createStackNavigator} from 'react-navigation';
 
 class Home extends Component {
 
+    static navigationOptions = {
+        title: 'Home'
+    }
+
     constructor(props) {
         super(props);
 
