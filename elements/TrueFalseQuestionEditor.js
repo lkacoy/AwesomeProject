@@ -3,6 +3,20 @@ import {View} from 'react-native';
 import {FormLabel, FormInput, FormValidationMessage} from 'react-native-elements';
 
 class TrueFalseQuestionEditor extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "",
+            description: "",
+            points: 0
+        }
+    }
+
+    formUpdate(newState) {
+        this.setState(newState);
+    }
+
     render() {
         return (
             <View>
@@ -14,7 +28,7 @@ class TrueFalseQuestionEditor extends React.Component {
                 </FormValidationMessage>
                 <FormLabel>Description</FormLabel>
                 <FormInput onChangeText={
-                    text => this.formUpdate({title: text}) }/>
+                    text => this.formUpdate({description: text}) }/>
                 <FormValidationMessage>
                     Description is required
                 </FormValidationMessage>
