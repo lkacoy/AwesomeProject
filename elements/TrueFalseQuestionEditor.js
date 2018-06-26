@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {FormLabel, FormInput, FormValidationMessage, Text, Button} from 'react-native-elements';
+import {CheckBox, FormLabel, FormInput, FormValidationMessage, Text, Button} from 'react-native-elements';
 
 class TrueFalseQuestionEditor extends React.Component {
 
@@ -9,7 +9,8 @@ class TrueFalseQuestionEditor extends React.Component {
         this.state = {
             title: "",
             description: "",
-            points: 0
+            points: 0,
+            isTrue: true
         }
     }
 
@@ -33,6 +34,13 @@ class TrueFalseQuestionEditor extends React.Component {
                 <FormValidationMessage>
                     Description is required
                 </FormValidationMessage>
+
+                <CheckBox checked={this.state.isTrue}
+                          title='The answer is true'
+                          onPress={() => this.formUpdate
+                          ({isTrue: !this.state.isTrue})}
+                          checked={this.state.isTrue}/>
+
                 <Button	backgroundColor="green"
                            color="white"
                            title="Save"/>
