@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {CheckBox, FormLabel, FormInput, FormValidationMessage, Text, Button} from 'react-native-elements';
 
-class TrueFalseQuestionEditor extends React.Component {
+export default class TrueFalseQuestionEditor extends Component {
 
     constructor(props) {
         super(props);
@@ -54,4 +54,3 @@ class TrueFalseQuestionEditor extends React.Component {
         )
     }
 }
-export default TrueFalseQuestionEditor
