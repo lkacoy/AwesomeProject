@@ -8,6 +8,7 @@ import QuestionTypeButtonGroupChooser from './elements/QuestionTypeButtonGroupCh
 import QuestionTypePicker from './elements/QuestionTypePicker';
 import TrueFalseQuestionEditor from './elements/TrueFalseQuestionEditor';
 import {createStackNavigator} from 'react-navigation';
+import ScreenX from './elements/ScreenX';
 
 class Home extends React.Component {
 
@@ -32,6 +33,9 @@ class Home extends React.Component {
                 <Button title="Go to Screen B"
                         onPress={() => this.props.navigation
                             .navigate('ScreenB') } />
+                <Button title="Go to Screen X"
+                        onPress={() => this.props.navigation
+                            .navigate('ScreenX', {'parameter': 'some value'})}/>
 
                 <TrueFalseQuestionEditor/>
 
@@ -63,22 +67,34 @@ class ScreenA extends Component {
                 <Button title="Go Home"
                         onPress={() =>this.props
                             .navigation
-                            .navigate('Home')} />
+                            .goBack()} />
             </View>
         )
     }
 }
 
-const ScreenB = () => (
-    <View>
-        <Text h1>ScreenB</Text>
-    </View>
-);
+class ScreenB extends Component {
+
+    static navigationOptions = {title: "Screen B"};
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View>
+                <Text h1>ScreenB</Text>
+            </View>
+        )
+    }
+}
 
 const App = createStackNavigator({
-    Home: { screen: Home },
-    ScreenA: { screen: ScreenA },
-    ScreenB: { screen: ScreenB }
+    Home,
+    ScreenA,
+    ScreenB,
+    ScreenX
 });
 
 
