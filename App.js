@@ -6,6 +6,7 @@ import Icons from './elements/Icons';
 import Exam from './elements/Exam';
 import QuestionTypeButtonGroupChooser from './elements/QuestionTypeButtonGroupChooser';
 import QuestionTypePicker from './elements/QuestionTypePicker';
+import TrueFalseQuestionEditor from './elements/TrueFalseQuestionEditor';
 
 export default class App extends React.Component {
   render() {
@@ -13,6 +14,8 @@ export default class App extends React.Component {
       <View>
           <StatusBar barStyle="light-content"/>
           <FixedHeader/>
+
+          <TrueFalseQuestionEditor/>
 
           <QuestionTypeButtonGroupChooser/>
           <QuestionTypePicker/>
