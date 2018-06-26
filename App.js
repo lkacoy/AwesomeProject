@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import FixedHeader from './elements/FixedHeader';
 import TextHeadings from './elements/TextHeadings';
+import Icons from './elements/Icons';
 
 export default class App extends React.Component {
   render() {
@@ -9,6 +10,7 @@ export default class App extends React.Component {
       <View>
           <StatusBar barStyle="light-content"/>
           <FixedHeader/>
+          <Icons/>
           <View style={{padding: 20}}>
           <TextHeadings/>
           </View>
