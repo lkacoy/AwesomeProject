@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import FixedHeader from './elements/FixedHeader';
+import TextHeadings from './elements/TextHeadings';
 
 export default class App extends React.Component {
   render() {
@@ -8,6 +9,7 @@ export default class App extends React.Component {
       <View>
           <StatusBar barStyle="light-content"/>
           <FixedHeader/>
+          <TextHeadings/>
       </View>
     );
   }
