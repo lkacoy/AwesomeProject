@@ -9,7 +9,7 @@ import QuestionTypePicker from './elements/QuestionTypePicker';
 import TrueFalseQuestionEditor from './elements/TrueFalseQuestionEditor';
 import {createStackNavigator} from 'react-navigation';
 
-class Home extends Component {
+class Home extends React.Component {
 
     static navigationOptions = {
         title: 'Home'
@@ -48,11 +48,22 @@ class Home extends Component {
     }
 }
 
-const ScreenA = () => (
-    <View>
-        <Text h1>Screen A</Text>
-    </View>
-);
+class ScreenA extends Component {
+
+    static navigationOptions = {title: "Screen A"}
+
+    constructor(props) {
+        super(props);
+    }
+    
+    render() {
+        return (
+            <View>
+                <Text h1>Screen A</Text>
+            </View>
+        )
+    }
+}
 
 const ScreenB = () => (
     <View>
