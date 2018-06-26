@@ -5,6 +5,7 @@ import TextHeadings from './elements/TextHeadings';
 import Icons from './elements/Icons';
 import Exam from './elements/Exam';
 import QuestionTypeButtonGroupChooser from './elements/QuestionTypeButtonGroupChooser';
+import QuestionTypePicker from './elements/QuestionTypePicker';
 
 export default class App extends React.Component {
   render() {
@@ -14,6 +15,7 @@ export default class App extends React.Component {
           <FixedHeader/>
 
           <QuestionTypeButtonGroupChooser/>
+          <QuestionTypePicker/>
           <Exam/>
 
           <Icons/>
