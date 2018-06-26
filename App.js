@@ -9,7 +9,9 @@ export default class App extends React.Component {
       <View>
           <StatusBar barStyle="light-content"/>
           <FixedHeader/>
+          <View style={{padding: 20}}>
           <TextHeadings/>
+          </View>
       </View>
     );
   }
