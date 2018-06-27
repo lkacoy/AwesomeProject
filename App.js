@@ -92,6 +92,13 @@ class ScreenB extends Component {
 
 const App = createStackNavigator({
     Home,
+    CourseList,
+    ModuleList,
+    LessonList,
+    WidgetList,
+    QuestionList,
+    TrueFalseQuestionEditor,
+    MultipleChoiceQuestionEditor,
     ScreenA,
     ScreenB,
     ScreenX
