@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View} from 'react-native';
 import {CheckBox, FormLabel, FormInput, FormValidationMessage, Text, Button} from 'react-native-elements';
 

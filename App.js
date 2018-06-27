@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, ScrollView, StatusBar } from 'react-native';
 import FixedHeader from './elements/FixedHeader';
 import TextHeadings from './elements/TextHeadings';
@@ -10,7 +10,7 @@ import TrueFalseQuestionEditor from './elements/TrueFalseQuestionEditor';
 import {createStackNavigator} from 'react-navigation';
 import ScreenX from './elements/ScreenX';
 
-class Home extends React.Component {
+class Home extends Component {
 
     static navigationOptions = {
         title: 'Home'
