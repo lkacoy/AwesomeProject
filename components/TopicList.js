@@ -16,7 +16,7 @@ class TopicList extends Component {
         this.setState({
             lessonId: lessonId
         })
-        fetch("http://localhost:8080/api/lesson/"+lessonId+"/topic")
+        fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/lesson/"+lessonId+"/topic")
             .then(response => (response.json()))
             .then(topics => this.setState({topics: topics}))
     }

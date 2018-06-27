@@ -6,14 +6,14 @@ class CourseList extends Component {
     static navigationOptions = {title: 'Courses'}
     constructor(props) {
         super(props)
-        fetch('http://localhost:8080/api/course')
-            .then(response => (response.json()))
-            .then(courses => {
-                this.setState({courses: courses})
-            })
         this.state = {
             courses: []
         }
+        fetch('https://web2018-lexikacoyannakis.herokuapp.com/api/course')
+            .then(response => (response.json()))
+            .then(courses => {
+                this.setState({courses: courses})
+            }).catch();
     }
     render() {
         return(

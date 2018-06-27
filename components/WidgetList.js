@@ -15,7 +15,7 @@ class WidgetList extends Component {
     componentDidMount() {
         const {navigation} = this.props;
         const lessonId = navigation.getParam("lessonId")
-        fetch("http://localhost:8080/api/lesson/"+lessonId+"/widget")
+        fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/lesson/"+lessonId+"/widget")
             .then(response => (response.json()))
             .then(widgets => this.setState({widgets}))
     }
