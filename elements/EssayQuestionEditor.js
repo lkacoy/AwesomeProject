@@ -7,6 +7,7 @@ export default class EssayQuestionEditor extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: "",
             title: "",
             description: "",
             points: 0
@@ -44,7 +45,8 @@ export default class EssayQuestionEditor extends Component {
 
 
                 <Text h3>Preview</Text>
-                <Text h2>{this.state.title}</Text>
+                <Text h3>Question {this.state.id} - {this.state.title}</Text>
+                <Text h3>{this.state.points} pts</Text>
                 <Text>{this.state.description}</Text>
                 <TextInput
                     multiline={true}
