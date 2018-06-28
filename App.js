@@ -70,6 +70,7 @@ const App = createStackNavigator({
     LessonList,
     WidgetList,
     AssignmentWidget,
+    Exam,
     QuestionList,
     TrueFalseQuestionEditor,
     MultipleChoiceQuestionEditor,

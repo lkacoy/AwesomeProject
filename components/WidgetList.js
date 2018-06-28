@@ -40,6 +40,9 @@ class WidgetList extends Component {
                     <Button title="Add New Assignment"
                                    onPress={() => this.props.navigation
                                        .navigate("AssignmentWidget", {lessonId: this.state.lessonId})} />
+                    <Button title="Add New Exam"
+                            onPress={() => this.props.navigation
+                                .navigate("Exam", {lessonId: this.state.lessonId})} />
                 </View>
             )
         } else {
@@ -48,6 +51,10 @@ class WidgetList extends Component {
                     <Button title="Add New Assignment"
                             onPress={() => this.props.navigation
                                 .navigate("AssignmentWidget", {lessonId: this.state.lessonId})} />
+                    <Button title="Add New Exam"
+                            style={{padding: 15}}
+                            onPress={() => this.props.navigation
+                                .navigate("Exam", {lessonId: this.state.lessonId})} />
                 </View>
             )
         }
