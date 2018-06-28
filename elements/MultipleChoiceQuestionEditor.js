@@ -12,8 +12,12 @@ class MultipleChoiceQuestionEditor extends React.Component {
             title: '',
             description: '',
             points: 0,
-            options: ''
+            optionText: '',
+            options: [],
+            correctOption: ''
         }
+        this.addChoice = this.addChoice.bind(this);
+        this.renderOptions = this.renderOptions.bind(this);
     }
     updateForm(newState) {
         this.setState(newState)
@@ -39,8 +43,9 @@ class MultipleChoiceQuestionEditor extends React.Component {
 
                 <FormLabel>Choices</FormLabel>
                 <FormInput onChangeText={
-                    text => this.updateForm({options: text})
+                    text => this.updateForm({optionText: text})
                 }/>
+                <Button title="Add Choice" onPress={() => this.addChoice()}/>
 
                 <Button	backgroundColor="green"
                            color="white"
@@ -52,9 +57,25 @@ class MultipleChoiceQuestionEditor extends React.Component {
                 <Text h3>Preview</Text>
                 <Text h2>{this.state.title}</Text>
                 <Text>{this.state.description}</Text>
-
+                {this.renderOptions()}
             </View>
         )
+    }
+
+    addChoice(text) {
+        this.state.options.push(this.state.optionText);
+        this.updateForm({optionText: ''});
+    }
+
+    renderOptions() {
+        if (this.state.options && this.state.options.length > 0) {
+            console.log("options " + this.state.options.length);
+            this.state.options.forEach(option => {
+                return (
+                    <Text>{option}</Text>
+                )
+            })
+        }
     }
 }
 
