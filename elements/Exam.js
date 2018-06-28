@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import {ListItem, Text} from 'react-native-elements';
+import {ListItem, Text, Button} from 'react-native-elements';
 
 const questions = [
     {	title: 'Question 1', subtitle: 'Multiple choice',
@@ -13,16 +13,21 @@ const questions = [
         icon: 'subject'}];
 
 export default class Exam extends Component {
+    static navigationOptions = {title: 'Exam'}
+
     render() {
         return (
-            <View stye={{padding: 15}}>
-                <Text h2>Lists</Text>
+            <View style={{padding: 15}}>
+                <Text h4>Questions</Text>
                 {questions.map((question, index) => (
                     <ListItem key={index}
                               title={question.title}
                               subtitle={question.subtitle}
                               leftIcon={{name: question.icon}}/>
                 ))}
+                <Button title="Add New Question"
+                        onPress={() => this.props.
+                        navigation.navigate("QuestionTypePicker")}/>
             </View>
         )
     }

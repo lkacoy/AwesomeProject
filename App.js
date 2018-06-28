@@ -74,6 +74,7 @@ const App = createStackNavigator({
     QuestionList,
     TrueFalseQuestionEditor,
     MultipleChoiceQuestionEditor,
+    QuestionTypePicker
 });
 
 export default App;
