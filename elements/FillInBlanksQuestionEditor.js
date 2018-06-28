@@ -33,6 +33,14 @@ export default class FillInBlanksQuestionEditor extends Component {
                 <FormValidationMessage>
                     Description is required
                 </FormValidationMessage>
+                <FormLabel>Points</FormLabel>
+                <FormInput
+                    keyboardType="numeric"
+                    onChangeText={
+                        points => this.formUpdate({points: points})}/>
+                <FormValidationMessage>
+                    Points are required
+                </FormValidationMessage>
 
                 <Button	backgroundColor="green"
                            color="white"
