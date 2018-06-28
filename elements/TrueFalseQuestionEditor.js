@@ -21,7 +21,6 @@ export default class TrueFalseQuestionEditor extends Component {
     render() {
         return (
             <View>
-                <Text h3>Editor</Text>
                 <FormLabel>Title</FormLabel>
                 <FormInput onChangeText={
                     text => this.formUpdate({title: text}) }/>

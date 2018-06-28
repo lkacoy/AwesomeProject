@@ -20,7 +20,6 @@ export default class FillInBlanksQuestionEditor extends Component {
     render() {
         return (
             <View>
-                <Text h3>Editor - Fill In</Text>
                 <FormLabel>Title</FormLabel>
                 <FormInput onChangeText={
                     text => this.formUpdate({title: text}) }/>

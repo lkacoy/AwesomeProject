@@ -21,7 +21,6 @@ export default class EssayQuestionEditor extends Component {
     render() {
         return (
             <ScrollView>
-                <Text h3>Editor - Essay</Text>
                 <FormLabel>Title</FormLabel>
                 <FormInput onChangeText={
                     text => this.formUpdate({title: text}) }/>
