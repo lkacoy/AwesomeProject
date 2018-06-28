@@ -33,14 +33,6 @@ class Home extends React.Component {
                 <Button title="Courses"
                         onPress={() => this.props.navigation
                             .navigate('CourseList') } />
-
-
-                <TrueFalseQuestionEditor/>
-
-                <QuestionTypeButtonGroupChooser/>
-                <QuestionTypePicker/>
-
-                <Exam/>
             </ScrollView>
         )
     }
