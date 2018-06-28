@@ -14,7 +14,6 @@ class CourseList extends Component {
             .then(courses => {
                 this.setState({courses: courses})
             })
-        console.log(this.state.courses);
     }
     render() {
         return(
