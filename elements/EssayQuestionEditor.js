@@ -57,7 +57,9 @@ export default class EssayQuestionEditor extends Component {
                            title="Save"/>
                 <Button	backgroundColor="red"
                            color="white"
-                           title="Cancel"/>
+                           title="Cancel"
+                           onPress={() =>this.props
+                            .navigation.navigate("Exam")} />
             </ScrollView>
         )
     }

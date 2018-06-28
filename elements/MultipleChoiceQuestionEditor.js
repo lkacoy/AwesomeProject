@@ -1,5 +1,5 @@
 import React from 'react'
-import {View} from 'react-native'
+import {View, ScrollView} from 'react-native'
 import {Text, Button, CheckBox} from 'react-native-elements'
 import {FormLabel, FormInput, FormValidationMessage}
     from 'react-native-elements'
@@ -24,7 +24,7 @@ class MultipleChoiceQuestionEditor extends React.Component {
     }
     render() {
         return(
-            <View>
+            <ScrollView>
                 <FormLabel>Title</FormLabel>
                 <FormInput onChangeText={
                     text => this.updateForm({title: text})
@@ -55,18 +55,19 @@ class MultipleChoiceQuestionEditor extends React.Component {
                 }/>
                 <Button title="Add Choice" onPress={() => this.addChoice()}/>
 
+
+                <Text h3>Preview</Text>
+                <Text h3>Question {this.state.id} - {this.state.title}</Text>
+                <Text h3>{this.state.points} pts</Text>
+                <Text>{this.state.description}</Text>
+                {this.renderOptions()}
                 <Button	backgroundColor="green"
                            color="white"
                            title="Save"/>
                 <Button	backgroundColor="red"
                            color="white"
                            title="Cancel"/>
-
-                <Text h3>Preview</Text>
-                <Text h2>{this.state.title}</Text>
-                <Text>{this.state.description}</Text>
-                {this.renderOptions()}
-            </View>
+            </ScrollView>
         )
     }
 

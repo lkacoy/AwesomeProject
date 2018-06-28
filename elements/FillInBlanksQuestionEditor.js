@@ -45,7 +45,7 @@ export default class FillInBlanksQuestionEditor extends Component {
                 <Text h3>Question {this.state.id} - {this.state.title}</Text>
                 <Text h3>{this.state.points} pts</Text>
                 <Text>{this.state.description}</Text>
-                
+
 
                 <Button	backgroundColor="green"
                            color="white"

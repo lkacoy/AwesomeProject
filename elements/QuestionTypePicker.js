@@ -6,6 +6,7 @@ import EssayQuestionEditor from "./EssayQuestionEditor";
 import FillInBlanksQuestionEditor from "./FillInBlanksQuestionEditor";
 
 export default class QuestionTypePicker extends Component {
+    static navigationOptions = {title: 'Add Question'}
     constructor(props) {
         super(props);
         this.state = {questionType: 'MC'}
