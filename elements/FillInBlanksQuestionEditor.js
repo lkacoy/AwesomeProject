@@ -41,16 +41,18 @@ export default class FillInBlanksQuestionEditor extends Component {
                     Points are required
                 </FormValidationMessage>
 
+                <Text h3>Preview</Text>
+                <Text h3>Question {this.state.id} - {this.state.title}</Text>
+                <Text h3>{this.state.points} pts</Text>
+                <Text>{this.state.description}</Text>
+                
+
                 <Button	backgroundColor="green"
                            color="white"
                            title="Save"/>
                 <Button	backgroundColor="red"
                            color="white"
                            title="Cancel"/>
-
-                <Text h3>Preview</Text>
-                <Text h2>{this.state.title}</Text>
-                <Text>{this.state.description}</Text>
             </View>
         )
     }
