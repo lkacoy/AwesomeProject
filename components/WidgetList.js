@@ -20,18 +20,29 @@ class WidgetList extends Component {
             .then(widgets => this.setState({widgets}))
     }
     render() {
-        return(
-            <View style={{padding: 15}}>
-                {this.state.widgets.map(
-                    (widget, index) => (
-                        <ListItem
-                            onPress={() => this.props.navigation
-                                .navigate("QuestionList", {examId: widget.id})}
-                            key={index}
-                            subtitle={widget.description}
-                            title={widget.title}/>))}
-            </View>
-        )
+        if (this.state.widgets && this.state.widgets.length > 0) {
+            return (
+                <View style={{padding: 15}}>
+                    {this.state.widgets.map(
+                        (widget, index) => (
+                            <ListItem
+                                onPress={() => this.props.navigation
+                                    .navigate("QuestionList", {examId: widget.id})}
+                                key={index}
+                                subtitle={widget.description}
+                                title={widget.title}/>))}
+                </View>
+            )
+        } else {
+            return (
+                <View>
+                    <Text h1>Screen A</Text>
+                </View>
+            )
+        }
     }
+
+
+
 }
 export default WidgetList

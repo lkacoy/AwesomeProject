@@ -13,7 +13,8 @@ class CourseList extends Component {
             .then(response => (response.json()))
             .then(courses => {
                 this.setState({courses: courses})
-            }).catch();
+            })
+        console.log(this.state.courses);
     }
     render() {
         return(
