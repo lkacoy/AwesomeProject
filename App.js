@@ -41,11 +41,6 @@ class Home extends React.Component {
                 <QuestionTypePicker/>
 
                 <Exam/>
-
-                <Icons/>
-                <View style={{padding: 20}}>
-                    <TextHeadings/>
-                </View>
             </ScrollView>
         )
     }
