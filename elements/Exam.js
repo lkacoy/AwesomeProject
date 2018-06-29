@@ -15,6 +15,7 @@ export default class Exam extends Component {
         }
         this.createNewExam = this.createNewExam.bind(this);
         this.createExam = this.createExam.bind(this);
+        this.deleteExam = this.deleteExam.bind(this);
     }
 
     componentDidMount() {
@@ -72,6 +73,7 @@ export default class Exam extends Component {
                     {this.renderListOfQuestions()}
                     <Button title="Cancel"/>
                     <Button title="Submit" onPress={() => this.createNewExam()}/>
+                    <Button title="Delete" onPress={() => this.deleteExam()}/>
                 </ScrollView>
         )
     }
@@ -103,6 +105,13 @@ export default class Exam extends Component {
             }).then(function (response)
         { console.log(response);
         return response.json(); })
+    }
+
+    deleteExam() {
+        return fetch(EXAM_LESSON_API_URL + '/' + this.state.exam.id,
+            {
+                method: 'DELETE'
+            })
     }
 
 }

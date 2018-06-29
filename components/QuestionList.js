@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View, Alert} from 'react-native'
 import {Text, ListItem, Button} from 'react-native-elements'
+import FillInBlanksQuestionEditor from "../elements/FillInBlanksQuestionEditor";
 
 class QuestionList extends Component {
     static navigationOptions = {title: 'Questions'}
@@ -42,6 +43,12 @@ class QuestionList extends Component {
                                 if(question.type === "MultipleChoice")
                                     this.props.navigation
                                         .navigate("MultipleChoiceQuestionEditor", {questionId: question.id})
+                                if (question.type === "FB")
+                                    this.props.navigation
+                                        .navigate("FillInBlanksQuestionEditor", {questionId: question.id})
+                                if (question.type === "ES")
+                                    this.props.navigation
+                                        .navigate("EssayQuestionEditor", {questionId: question.id})
                             }}
                             key={index}
                             subtitle={question.description}

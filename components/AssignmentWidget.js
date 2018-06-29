@@ -26,6 +26,7 @@ class AssignmentWidget extends Component {
         }
         this.createNewAssignment = this.createNewAssignment.bind(this);
         this.createAssignment = this.createAssignment.bind(this);
+        this.deleteAssignment = this.deleteAssignment.bind(this);
     }
 
     componentDidMount() {
@@ -72,6 +73,7 @@ class AssignmentWidget extends Component {
                 <FormInput/>
                 <Button title="Cancel"/>
                 <Button title="Submit" onPress={() => this.createNewAssignment()}/>
+                <Button title="Delete" onPress={() => this.deleteAssignment()}/>
             </View>
         )
     }
@@ -92,6 +94,13 @@ class AssignmentWidget extends Component {
         { return response.json(); })
     }
 
+
+    deleteAssignment() {
+        return fetch(ASSIGNMENT_API_URL + '/' + this.state.assignment.id,
+            {
+                method: 'DELETE'
+            })
+    }
 
 }
 export default AssignmentWidget
