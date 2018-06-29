@@ -2,7 +2,7 @@ let _singleton = Symbol();
 const EXAM_API_URL = 'https://web2018-lexikacoyannakis.herokuapp.com/api/exam';
 const EXAM_LESSON_API_URL="https://web2018-lexikacoyannkis.herokuapp.com/api/lesson/{LID}/exam";
 
-class ExamService {
+export default class ExamService {
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
             throw new Error('Cannot instantiate directly.');
