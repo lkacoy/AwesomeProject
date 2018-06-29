@@ -68,6 +68,8 @@ class AssignmentWidget extends Component {
                 <Text>Assignment: {this.state.assignment.id} - {this.state.assignment.title}</Text>
                 <Text>{this.state.assignment.points} pts</Text>
                 <Text>{this.state.assignment.description}</Text>
+                <Text>Submit a Link</Text>
+                <FormInput/>
                 <Button title="Cancel"/>
                 <Button title="Submit" onPress={() => this.createNewAssignment()}/>
             </View>
