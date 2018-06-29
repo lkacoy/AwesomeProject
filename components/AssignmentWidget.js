@@ -12,7 +12,7 @@ const Preview = () => (
 
 
 const ASSIGNMENT_API_URL = 'https://web2018-lexikacoyannakis.herokuapp.com/api/assignment';
-const ASSIGNMENT_LESSON_API_URL="https://web2018-lexikacoyannkis.herokuapp.com/api/lesson/{LID}/assignment";
+const ASSIGNMENT_LESSON_API_URL="https://web2018-lexikacoyannakis.herokuapp.com/api/lesson/{LID}/assignment";
 
 
 class AssignmentWidget extends Component {
