@@ -64,9 +64,6 @@ export default class Exam extends Component {
                     </FormValidationMessage>
                     <Text h4>Questions</Text>
                     {this.renderListOfQuestions()}
-                    <Button title="Add New Question"
-                            onPress={() => this.props.
-                            navigation.navigate("QuestionTypePicker", {examId: this.state.exam.id})}/>
 
                     <Text h1>Preview</Text>
                     <Text>Exam: {this.state.exam.id} - {this.state.exam.title}</Text>

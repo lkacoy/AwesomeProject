@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {View, Alert} from 'react-native'
-import {Text, ListItem} from 'react-native-elements'
+import {Text, ListItem, Button} from 'react-native-elements'
 
 class QuestionList extends Component {
     static navigationOptions = {title: 'Questions'}
@@ -14,14 +14,25 @@ class QuestionList extends Component {
     componentDidMount() {
         const {navigation} = this.props;
         const examId = navigation.getParam("examId")
-        fetch("http://localhost:8080/api/exam/"+examId+"/question")
+        fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/exam/"+examId+"/question")
             .then(response => (response.json()))
             .then(questions => this.setState({questions}))
     }
     render() {
         return(
             <View style={{padding: 15}}>
-                {this.state.questions.map(
+                {this.renderQuestions()}
+                <Button title="Add New Question"
+                        onPress={() => this.props.
+                        navigation.navigate("QuestionTypePicker", {examId: this.state.exam.id})}/>
+            </View>
+        )
+    }
+
+    renderQuestions() {
+        if (this.state.questions && this.state.questions.length > 0) {
+            return (
+                this.state.questions.map(
                     (question, index) => (
                         <ListItem
                             onPress={() => {
@@ -34,9 +45,10 @@ class QuestionList extends Component {
                             }}
                             key={index}
                             subtitle={question.description}
-                            title={question.title}/>))}
-            </View>
-        )
+                            title={question.title}/>))
+            )
+        }
     }
+
 }
 export default QuestionList
