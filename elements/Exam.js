@@ -19,7 +19,7 @@ export default class Exam extends Component {
 
     componentDidMount() {
         const {navigation} = this.props;
-        this.state.lessonId = navigation.getParam("lessonId");;
+        this.state.lessonId = navigation.getParam("lessonId");
     }
 
     updateForm(text, parameter) {

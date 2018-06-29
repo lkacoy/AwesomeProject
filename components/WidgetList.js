@@ -23,7 +23,7 @@ class WidgetList extends Component {
 
         fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/lesson/"+lessonId+"/assignment")
             .then(response => (response.json()))
-            .then(assignments => this.setState({assignments}))
+            .then(assignments => this.setState({assignments}));
 
         fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/lesson/"+lessonId+"/exams")
             .then(response => (response.json()))
@@ -31,51 +31,52 @@ class WidgetList extends Component {
     }
     render() {
         console.log(this.state.lessonId);
-        if (this.state.widgets && this.state.widgets.length > 0) {
             return (
                 <View style={{padding: 15}}>
                     <Text h3>Assignments</Text>
-                    {this.state.assignments.map(
-                        (assignment, index) => (
-                            <ListItem
-                                onPress={() => this.props.navigation
-                                    .navigate("QuestionList", {assignmentId: assignment.id})}
-                                key={index}
-                                subtitle={assignment.description}
-                                title={assignment.title}/>))}
+                    {this.renderAssignments()}
                     <Button title="Add New Assignment"
                                    onPress={() => this.props.navigation
                                        .navigate("AssignmentWidget", {lessonId: this.state.lessonId})} />
                     <Text h3>Exams</Text>
-                    {this.state.exams.map(
-                        (exam, index) => (
-                            <ListItem
-                                onPress={() => this.props.navigation
-                                    .navigate("QuestionList", {examId: exam.id})}
-                                key={index}
-                                subtitle={exam.description}
-                                title={exam.title}/>))}
+                    {this.renderExams()}
                     <Button title="Add New Exam"
                             onPress={() => this.props.navigation
                                 .navigate("Exam", {lessonId: this.state.lessonId})} />
                 </View>
             )
-        } else {
+
+    }
+
+    renderAssignments() {
+        if (this.state.assignments && this.state.assignments.length > 0) {
             return (
-                <View>
-                    <Button title="Add New Assignment"
+                this.state.assignments.map(
+                    (assignment, index) => (
+                        <ListItem
                             onPress={() => this.props.navigation
-                                .navigate("AssignmentWidget", {lessonId: this.state.lessonId})} />
-                    <Button title="Add New Exam"
-                            style={{padding: 15}}
-                            onPress={() => this.props.navigation
-                                .navigate("Exam", {lessonId: this.state.lessonId})} />
-                </View>
+                                .navigate("QuestionList", {assignmentId: assignment.id})}
+                            key={index}
+                            subtitle={assignment.description}
+                            title={assignment.title}/>))
             )
         }
     }
 
-
+    renderExams() {
+        if (this.state.exams && this.state.exams.length > 0) {
+            return (
+                this.state.exams.map(
+                    (exam, index) => (
+                        <ListItem
+                            onPress={() => this.props.navigation
+                                .navigate("QuestionList", {examId: exam.id})}
+                            key={index}
+                            subtitle={exam.description}
+                            title={exam.title}/>))
+            )
+        }
+    }
 
 }
 export default WidgetList
