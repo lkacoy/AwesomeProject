@@ -22,6 +22,7 @@ export default class Exam extends Component {
     componentDidMount() {
         const {navigation} = this.props;
         this.state.lessonId = navigation.getParam("lessonId");
+        this.state.examId = navigation.getParam("widgetId");
     }
 
     updateForm(text, parameter) {
@@ -72,6 +73,8 @@ export default class Exam extends Component {
                     <Text>{this.state.exam.points} pts</Text>
                     <Text>{this.state.exam.description}</Text>
                     {this.renderListOfQuestions()}
+                    <Button title="Add New Question" onPress={() => this.props
+                        .navigation.navigate("QuestionList", {examId: this.state.exam.id})}/>
                     <Button title="Cancel" onPress={() => this.props
                         .navigation
                         .goBack()}/>

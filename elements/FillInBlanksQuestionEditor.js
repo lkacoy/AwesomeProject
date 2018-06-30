@@ -52,7 +52,10 @@ export default class FillInBlanksQuestionEditor extends Component {
                            title="Save"/>
                 <Button	backgroundColor="red"
                            color="white"
-                           title="Cancel"/>
+                           title="Cancel"
+                           onPress={() => this.props
+                               .navigation
+                               .goBack()}/>
             </View>
         )
     }

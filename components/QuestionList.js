@@ -25,7 +25,7 @@ class QuestionList extends Component {
                 {this.renderQuestions()}
                 <Button title="Add New Question"
                         onPress={() => this.props.
-                        navigation.navigate("QuestionTypePicker", {examId: this.state.exam.id})}/>
+                        navigation.navigate("QuestionTypePicker", {examId: this.state.examId})}/>
             </View>
         )
     }
