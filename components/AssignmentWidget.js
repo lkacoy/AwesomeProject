@@ -72,7 +72,9 @@ class AssignmentWidget extends Component {
                 <Text>{this.state.assignment.description}</Text>
                 <Text>Submit a Link</Text>
                 <FormInput/>
-                <Button title="Cancel"/>
+                <Button title="Cancel" onPress={() => this.props
+                    .navigation
+                    .goBack()}/>
                 <Button title="Submit" onPress={() => this.createNewAssignment()}/>
                 <Button title="Delete" onPress={() => this.deleteAssignment()}/>
             </View>
