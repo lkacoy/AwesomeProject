@@ -72,7 +72,9 @@ export default class Exam extends Component {
                     <Text>{this.state.exam.points} pts</Text>
                     <Text>{this.state.exam.description}</Text>
                     {this.renderListOfQuestions()}
-                    <Button title="Cancel"/>
+                    <Button title="Cancel" onPress={() => this.props
+                        .navigation
+                        .goBack()}/>
                     <Button title="Submit" onPress={() => this.createNewExam()}/>
                     <Button title="Delete" onPress={() => this.deleteExam()}/>
                 </ScrollView>

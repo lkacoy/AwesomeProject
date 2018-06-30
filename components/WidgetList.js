@@ -31,10 +31,10 @@ class WidgetList extends Component {
                             key={index}
                             subtitle={widget.description}
                             title={widget.title}/>))}
-                <Button title="Add New Assignment"
+                <Button style={{padding: 15}} title="Add New Assignment"
                     onPress={() => this.props.navigation
                     .navigate("AssignmentWidget", {lessonId: this.state.lessonId})} />
-                    <Button title="Add New Exam"
+                    <Button style={{padding: 15}} title="Add New Exam"
                     onPress={() => this.props.navigation
                     .navigate("Exam", {lessonId: this.state.lessonId})} />
             </View>
