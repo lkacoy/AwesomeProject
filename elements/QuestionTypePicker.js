@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Picker, Text, View} from 'react-native';
+import {Picker, Text, ScrollView} from 'react-native';
 import {Button} from 'react-native-elements';
 import MultipleChoiceQuestionEditor from "./MultipleChoiceQuestionEditor";
 import TrueFalseQuestionEditor from "./TrueFalseQuestionEditor";
@@ -12,11 +12,12 @@ export default class QuestionTypePicker extends Component {
         super(props);
         this.state = {questionType: 'MC'}
         this.displayQuestionType = this.displayQuestionType.bind(this);
+        this.saveQuestion = this.saveQuestion.bind(this);
     }
 
     render() {
         return (
-            <View>
+            <ScrollView>
                 <Picker
                     selectedValue={this.state.questionType}
                     onValueChange={(itemValue, itemIndex) =>
@@ -29,14 +30,14 @@ export default class QuestionTypePicker extends Component {
                 {this.displayQuestionType()}
                 <Button	backgroundColor="green"
                            color="white"
-                           title="Save"/>
+                           title="Save" onPress={() => this.saveQuestion()}/>
                 <Button	backgroundColor="red"
                            color="white"
                            title="Cancel"
                            onPress={() => this.props
                                .navigation
                                .goBack()}/>
-            </View>
+            </ScrollView>
         )
     }
 
@@ -56,6 +57,26 @@ export default class QuestionTypePicker extends Component {
         } else {
             return (
                 <FillInBlanksQuestionEditor/>
+            )
+        }
+    }
+
+    saveQuestion() {
+        if (this.state.questionType == 'MC') {
+            return (
+                console.log("multiple choice")
+            )
+        } else if (this.state.questionType == 'ES') {
+            return (
+                console.log("essay")
+            )
+        } else if (this.state.questionType == 'TF') {
+            return (
+                console.log("true false")
+            )
+        } else {
+            return (
+                console.log("fill in blanks")
             )
         }
     }
