@@ -21,8 +21,9 @@ class AssignmentWidget extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            assignment: {id: '', title: '', description: '', points: 0},
-            lessonId: 1
+            assignment: {id: '', title: '', description: '', points: 0, widgetType: "Assignment"},
+            lessonId: 1,
+            widgetId: ''
         }
         this.createNewAssignment = this.createNewAssignment.bind(this);
         this.createAssignment = this.createAssignment.bind(this);

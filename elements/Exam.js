@@ -10,8 +10,9 @@ export default class Exam extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            exam: {id: '', title: '', description: '', points: 0, questions: []},
-            lessonId: 1
+            exam: {id: '', title: '', description: '', points: 0, questions: [], widgetType: "Exam"},
+            lessonId: 1,
+            widgetId: ''
         }
         this.createNewExam = this.createNewExam.bind(this);
         this.createExam = this.createExam.bind(this);
