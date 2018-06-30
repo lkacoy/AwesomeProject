@@ -61,12 +61,6 @@ class MultipleChoiceQuestionEditor extends React.Component {
                 <Text h3>{this.state.points} pts</Text>
                 <Text>{this.state.description}</Text>
                 {this.renderOptions()}
-                <Button	backgroundColor="green"
-                           color="white"
-                           title="Save"/>
-                <Button	backgroundColor="red"
-                           color="white"
-                           title="Cancel"/>
             </ScrollView>
         )
     }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Picker, Text, View} from 'react-native';
+import {Button} from 'react-native-elements';
 import MultipleChoiceQuestionEditor from "./MultipleChoiceQuestionEditor";
 import TrueFalseQuestionEditor from "./TrueFalseQuestionEditor";
 import EssayQuestionEditor from "./EssayQuestionEditor";
@@ -26,6 +27,15 @@ export default class QuestionTypePicker extends Component {
                     <Picker.Item value="FB" label="Fill in the blanks" />
                 </Picker>
                 {this.displayQuestionType()}
+                <Button	backgroundColor="green"
+                           color="white"
+                           title="Save"/>
+                <Button	backgroundColor="red"
+                           color="white"
+                           title="Cancel"
+                           onPress={() => this.props
+                               .navigation
+                               .goBack()}/>
             </View>
         )
     }

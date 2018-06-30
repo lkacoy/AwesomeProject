@@ -51,15 +51,6 @@ export default class EssayQuestionEditor extends Component {
                 <TextInput
                     multiline={true}
                     numberOfLines={5}/>
-
-                <Button	backgroundColor="green"
-                           color="white"
-                           title="Save"/>
-                <Button	backgroundColor="red"
-                           color="white"
-                           title="Cancel"
-                           onPress={() =>this.props
-                            .navigation.navigate("Exam")} />
             </ScrollView>
         )
     }
