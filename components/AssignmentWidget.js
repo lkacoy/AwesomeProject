@@ -2,15 +2,6 @@ import React, {Component} from 'react'
 import {View} from 'react-native'
 import {Text, Button, FormLabel, FormInput, FormValidationMessage} from 'react-native-elements'
 
-const Preview = () => (
-    <View>
-        <Text h1>Preview</Text>
-        <Button title="Cancel"/>
-        <Button title="Submit"/>
-    </View>
-);
-
-
 const ASSIGNMENT_API_URL = 'https://web2018-lexikacoyannakis.herokuapp.com/api/assignment';
 const ASSIGNMENT_LESSON_API_URL="https://web2018-lexikacoyannakis.herokuapp.com/api/lesson/{LID}/assignment";
 
