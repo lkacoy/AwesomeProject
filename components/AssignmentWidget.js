@@ -27,8 +27,18 @@ class AssignmentWidget extends Component {
         this.state.lessonId = lessonId;
     }
 
-    updateForm(newState) {
-        this.setState(newState)
+
+    updateForm(text, parameter) {
+        let state = this.state.assignment;
+        if (parameter === 'points') {
+            state.points = text;
+        } else if (parameter === 'title') {
+            state.title = text;
+        } else if (parameter === 'description') {
+            state.description = text;
+        }
+
+        this.setState(state)
     }
 
     render() {
@@ -36,14 +46,14 @@ class AssignmentWidget extends Component {
             <View style={{padding: 15}}>
                 <FormLabel>Title</FormLabel>
                 <FormInput onChangeText={
-                    text => this.updateForm({assignment: {title: text}})
+                    text => this.updateForm(text, "title")
                 }/>
                 <FormValidationMessage>
                     Title is required
                 </FormValidationMessage>
                 <FormLabel>Description</FormLabel>
                 <FormInput onChangeText={
-                    text => this.updateForm({assignment: {description: text}})
+                    text => this.updateForm(text, "description")
                 }/>
                 <FormValidationMessage>
                     Description is required
@@ -51,7 +61,7 @@ class AssignmentWidget extends Component {
                 <FormLabel>Points</FormLabel>
                 <FormInput keyboardType="numeric"
                            onChangeText={
-                    text => this.updateForm({assignment: {points: text}})
+                    text => this.updateForm(text, "points")
                 }/>
                 <FormValidationMessage>
                     Points is required

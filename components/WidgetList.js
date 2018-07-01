@@ -36,7 +36,7 @@ class WidgetList extends Component {
                     .navigate("AssignmentWidget", {lessonId: this.state.lessonId})} />
                     <Button style={{padding: 15}} title="Add New Exam"
                     onPress={() => this.props.navigation
-                    .navigate("Exam", {lessonId: this.state.lessonId, widgetId: this.state.widget.id})} />
+                    .navigate("Exam", {lessonId: this.state.lessonId})} />
             </View>
         )
     }

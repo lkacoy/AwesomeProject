@@ -10,9 +10,14 @@ export default class QuestionTypePicker extends Component {
     static navigationOptions = {title: 'Add Question'}
     constructor(props) {
         super(props);
-        this.state = {questionType: 'MC'}
+        this.state = {questionType: 'MC', examId: 1}
         this.displayQuestionType = this.displayQuestionType.bind(this);
-        this.saveQuestion = this.saveQuestion.bind(this);
+
+    }
+
+    componentDidMount() {
+        const {navigation} = this.props;
+        this.state.examId = navigation.getParam("examId")
     }
 
     render() {
@@ -28,9 +33,6 @@ export default class QuestionTypePicker extends Component {
                     <Picker.Item value="FB" label="Fill in the blanks" />
                 </Picker>
                 {this.displayQuestionType()}
-                <Button	backgroundColor="green"
-                           color="white"
-                           title="Save" onPress={() => this.saveQuestion()}/>
                 <Button	backgroundColor="red"
                            color="white"
                            title="Cancel"
@@ -44,27 +46,35 @@ export default class QuestionTypePicker extends Component {
     displayQuestionType() {
         if (this.state.questionType == 'MC') {
             return (
-                <MultipleChoiceQuestionEditor/>
+                <MultipleChoiceQuestionEditor examId={this.state.examId}/>
             )
         } else if (this.state.questionType == 'ES') {
             return (
-                <EssayQuestionEditor/>
+                <EssayQuestionEditor examId={this.state.examId}/>
             )
         } else if (this.state.questionType == 'TF') {
             return (
-                <TrueFalseQuestionEditor/>
+                <TrueFalseQuestionEditor examId={this.state.examId}/>
             )
         } else {
             return (
-                <FillInBlanksQuestionEditor/>
+                <FillInBlanksQuestionEditor examId={this.state.examId}/>
             )
         }
     }
-
+/*
     saveQuestion() {
         if (this.state.questionType == 'MC') {
             return (
                 console.log("multiple choice")
+            return fetch(EXAM_LESSON_API_URL.replace('LID', lessonId),
+                {
+                    body: JSON.stringify(exam),
+                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST'
+                }).then(function (response)
+            { console.log(response);
+                return response.json(); })
             )
         } else if (this.state.questionType == 'ES') {
             return (
@@ -79,5 +89,5 @@ export default class QuestionTypePicker extends Component {
                 console.log("fill in blanks")
             )
         }
-    }
+    }*/
 }

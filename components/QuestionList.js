@@ -14,11 +14,12 @@ class QuestionList extends Component {
     }
     componentDidMount() {
         const {navigation} = this.props;
-        const examId = navigation.getParam("examId")
-        fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/exam/"+examId+"/question")
+        this.state.examId = navigation.getParam("widgetId")
+        fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/exam/"+this.state.examId+"/question")
             .then(response => (response.json()))
             .then(questions => this.setState({questions}))
     }
+
     render() {
         return(
             <View style={{padding: 15}}>
@@ -39,16 +40,16 @@ class QuestionList extends Component {
                             onPress={() => {
                                 if(question.type === "TrueFalseExamQuestion")
                                     this.props.navigation
-                                        .navigate("TrueFalseQuestionEditor", {questionId: question.id})
+                                        .navigate("TrueFalseQuestionEditor", {examId: this.state.examId, questionId: question.id})
                                 if(question.type === "MultipleChoiceQuestion")
                                     this.props.navigation
-                                        .navigate("MultipleChoiceQuestionEditor", {questionId: question.id})
+                                        .navigate("MultipleChoiceQuestionEditor", {examId: this.state.examId, questionId: question.id})
                                 if (question.type === "FillInTheBlanksExamQuestion")
                                     this.props.navigation
-                                        .navigate("FillInBlanksQuestionEditor", {questionId: question.id})
+                                        .navigate("FillInBlanksQuestionEditor", {examId: this.state.examId, questionId: question.id})
                                 if (question.type === "EssayExamQuestion")
                                     this.props.navigation
-                                        .navigate("EssayQuestionEditor", {questionId: question.id})
+                                        .navigate("EssayQuestionEditor", {examId: this.state.examId, questionId: question.id})
                             }}
                             key={index}
                             subtitle={question.description}
