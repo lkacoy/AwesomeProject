@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View} from 'react-native'
+import {View, TextInput} from 'react-native'
 import {Text, Button, FormLabel, FormInput, FormValidationMessage} from 'react-native-elements'
 
 const ASSIGNMENT_API_URL = 'https://web2018-lexikacoyannakis.herokuapp.com/api/assignment';
@@ -12,7 +12,7 @@ class AssignmentWidget extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            assignment: {id: '', title: '', description: '', points: 0, widgetType: "Assignment"},
+            assignment: {id: '', title: '', description: '', points: 0, href: '', widgetType: "Assignment"},
             lessonId: 1,
             widgetId: ''
         }
@@ -25,6 +25,7 @@ class AssignmentWidget extends Component {
         const {navigation} = this.props;
         const lessonId = navigation.getParam("lessonId");
         this.state.lessonId = lessonId;
+        this.state.assignment = navigation.getParam("assignment")
     }
 
 
@@ -36,6 +37,8 @@ class AssignmentWidget extends Component {
             state.title = text;
         } else if (parameter === 'description') {
             state.description = text;
+        } else if (parameter === 'link') {
+            state.href = text;
         }
 
         this.setState(state)
@@ -45,14 +48,16 @@ class AssignmentWidget extends Component {
         return (
             <View style={{padding: 15}}>
                 <FormLabel>Title</FormLabel>
-                <FormInput onChangeText={
+                <FormInput value={this.state.title}
+                           onChangeText={
                     text => this.updateForm(text, "title")
                 }/>
                 <FormValidationMessage>
                     Title is required
                 </FormValidationMessage>
                 <FormLabel>Description</FormLabel>
-                <FormInput onChangeText={
+                <FormInput value={this.state.description}
+                           onChangeText={
                     text => this.updateForm(text, "description")
                 }/>
                 <FormValidationMessage>
@@ -60,6 +65,7 @@ class AssignmentWidget extends Component {
                 </FormValidationMessage>
                 <FormLabel>Points</FormLabel>
                 <FormInput keyboardType="numeric"
+                           value={this.state.points}
                            onChangeText={
                     text => this.updateForm(text, "points")
                 }/>
@@ -71,8 +77,15 @@ class AssignmentWidget extends Component {
                 <Text>Assignment: {this.state.assignment.id} - {this.state.assignment.title}</Text>
                 <Text>{this.state.assignment.points} pts</Text>
                 <Text>{this.state.assignment.description}</Text>
-                <Text>Submit a Link</Text>
-                <FormInput/>
+                <Text>Essay Answer</Text>
+                <TextInput
+                    multiline={true}
+                    numberOfLines={5}/>
+                <Text>Upload a File</Text>
+
+                <FormLabel>Submit a Link</FormLabel>
+                <FormInput value={this.state.href} onChangeText={text => this.updateForm(text, "link")}/>
+
                 <Button title="Cancel" onPress={() => this.props
                     .navigation
                     .goBack()}/>

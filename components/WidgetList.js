@@ -9,14 +9,15 @@ class WidgetList extends Component {
         this.state = {
             widgets: [],
             courseId: 1,
-            moduleId: 1
+            moduleId: 1,
+            lessonId: 1
         }
         this.determineNavigation = this.determineNavigation.bind(this);
     }
     componentDidMount() {
         const {navigation} = this.props;
-        const lessonId = navigation.getParam("lessonId")
-        fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/lesson/"+lessonId+"/widget")
+        this.state.lessonId = navigation.getParam("lessonId")
+        fetch("https://web2018-lexikacoyannakis.herokuapp.com/api/lesson/"+this.state.lessonId+"/widget")
             .then(response => (response.json()))
             .then(widgets => this.setState({widgets}))
         console.log(this.state.widgets);
@@ -43,10 +44,10 @@ class WidgetList extends Component {
 
     determineNavigation(widget) {
         if (widget.widgetType === "Assignment") {
-            return this.props.navigation.navigate("AssignmentWidget", {assignmentId: widget.id})
+            return this.props.navigation.navigate("AssignmentWidget", {assignment: widget, lessonId: this.state.lessonId})
         }
         else {
-            return this.props.navigation.navigate("Exam", {examId: widget.id})
+            return this.props.navigation.navigate("Exam", {exam: widget, lessonId: this.state.lessonId})
         }
     }
 }

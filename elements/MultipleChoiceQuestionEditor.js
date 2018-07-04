@@ -64,7 +64,7 @@ class MultipleChoiceQuestionEditor extends React.Component {
                 <FormInput
                     keyboardType="numeric"
                     onChangeText={
-                        points => this.formUpdate(points, "points")}/>
+                        points => this.updateForm(points, "points")}/>
                 <FormValidationMessage>
                     Points are required
                 </FormValidationMessage>

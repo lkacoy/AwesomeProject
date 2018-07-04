@@ -12,7 +12,8 @@ export default class Exam extends Component {
         this.state = {
             exam: {id: '', title: '', description: '', points: 0, questions: [], widgetType: "Exam"},
             lessonId: 1,
-            widgetId: ''
+            widgetId: '',
+            examId: ''
         }
         this.createNewExam = this.createNewExam.bind(this);
         this.createExam = this.createExam.bind(this);
@@ -22,7 +23,8 @@ export default class Exam extends Component {
     componentDidMount() {
         const {navigation} = this.props;
         this.state.lessonId = navigation.getParam("lessonId");
-        this.state.examId = navigation.getParam("widgetId");
+        this.state.exam = navigation.getParam("exam");
+        console.log(this.state);
     }
 
     updateForm(text, parameter) {
@@ -44,21 +46,24 @@ export default class Exam extends Component {
 
                 <ScrollView contentContainerStyle={{flex:1}}>
                     <FormLabel>Title</FormLabel>
-                    <FormInput onChangeText={
-                        text => this.updateForm(text, "title")
+                    <FormInput value={this.state.exam.title}
+                               onChangeText={
+                                text => this.updateForm(text, "title")
                     }/>
                     <FormValidationMessage>
                         Title is required
                     </FormValidationMessage>
                     <FormLabel>Description</FormLabel>
-                    <FormInput onChangeText={
-                        text => this.updateForm(text, "description")
+                    <FormInput value={this.state.exam.description}
+                               onChangeText={
+                                text => this.updateForm(text, "description")
                     }/>
                     <FormValidationMessage>
                         Description is required
                     </FormValidationMessage>
                     <FormLabel>Points</FormLabel>
                     <FormInput keyboardType="numeric"
+                               value={this.state.exam.points}
                                onChangeText={
                                    text => this.updateForm(text, "points")
                                }/>
@@ -119,5 +124,6 @@ export default class Exam extends Component {
                 method: 'DELETE'
             })
     }
+
 
 }
